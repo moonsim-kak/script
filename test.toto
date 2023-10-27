@@ -2134,6 +2134,9 @@ local Toggle = Tabs.Settings:AddToggle("Enable Fast Attack", {Title = "Fast atta
         local SuperFastMode = true -- เปลี่ยนเป็นจริงถ้าคุณต้องการโจมตี Super Super Super Fast (เช่นการฆ่าทันที) แต่จะทำให้เกมเตะคุณมากกว่าโหมดปกติ
         _G.FastAttack = Options.MyToggle.Value
     end)
+
+    Options.MyToggle:SetValue(false)
+    
              spawn(function()
                 while wait() do
                     pcall(function()
@@ -2358,7 +2361,7 @@ spawn(function()
     end)
 end)
 
-Options.MyToggle:SetValue(false)
+
 
 
 local Toggle = Tabs.Settings:AddToggle("Enable Bring Mob", {Title = "Bring Mob", Default = false })
