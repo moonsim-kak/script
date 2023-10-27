@@ -2082,6 +2082,8 @@ local X23 = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
+local Options = Fluent.Options
+
 local Tabs = {
     Main = X23:AddTab({ Title = "Main", Icon = "6026568198" }),
     Settings = X23:AddTab({ Title = "Settings", Icon = "settings" })
@@ -2136,7 +2138,7 @@ local Toggle = Tabs.Settings:AddToggle("Enable Fast Attack", {Title = "Fast atta
     end)
 
     Options.MyToggle:SetValue(false)
-    
+
              spawn(function()
                 while wait() do
                     pcall(function()
