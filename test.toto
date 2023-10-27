@@ -2133,11 +2133,11 @@ local Q = {
 local Toggle = Tabs.Settings:AddToggle("Enable_Fast_Attack", {Title = "Fast attack", Default = false })
 
     Toggle:OnChanged(function()
-        local SuperFastMode = true -- เปลี่ยนเป็นจริงถ้าคุณต้องการโจมตี Super Super Super Fast (เช่นการฆ่าทันที) แต่จะทำให้เกมเตะคุณมากกว่าโหมดปกติ
+        local SuperFastMode = Options.Enable_Fast_Attack.Value -- เปลี่ยนเป็นจริงถ้าคุณต้องการโจมตี Super Super Super Fast (เช่นการฆ่าทันที) แต่จะทำให้เกมเตะคุณมากกว่าโหมดปกติ
         _G.FastAttack = Options.Enable_Fast_Attack.Value
     end)
 
-    Options.MyToggle:SetValue(false)
+    Options.Enable_Fast_Attack:SetValue(false)
 
              spawn(function()
                 while wait() do
@@ -2366,13 +2366,13 @@ end)
 
 
 
-local Toggle = Tabs.Settings:AddToggle("Enable Bring Mob", {Title = "Bring Mob", Default = false })
+local Toggle = Tabs.Settings:AddToggle("Enable_Bring_Mob", {Title = "Bring Mob", Default = false })
 
     Toggle:OnChanged(function()
-        _G.BringMonster = Options.MyToggle.Value
+        _G.BringMonster = Options.Enable_Bring_Mob.Value
     end)
 
-    Options.MyToggle:SetValue(false)
+    Options.Enable_Bring_Mob:SetValue(false)
 
     spawn(function()
         while task.wait() do
@@ -2615,13 +2615,13 @@ local Toggle = Tabs.Settings:AddToggle("Enable Bring Mob", {Title = "Bring Mob",
         end
     end)
 
-    local Toggle = Tabs.Settings:AddToggle("Auto Open Buso Haki", {Title = "Buso Haki", Default = true })
+    local Toggle = Tabs.Settings:AddToggle("Auto_Open_Buso_Haki", {Title = "Buso Haki", Default = true })
 
     Toggle:OnChanged(function()
-        _G.AUTOHAKI = Options.MyToggle.Value
+        _G.AUTOHAKI = Options.Auto_Open_Buso_Haki.Value
     end)
 
-    Options.MyToggle:SetValue(true)
+    Options.Auto_Open_Buso_Haki:SetValue(true)
 
     spawn(function()
         while wait(.1) do
@@ -2636,13 +2636,13 @@ local Toggle = Tabs.Settings:AddToggle("Enable Bring Mob", {Title = "Bring Mob",
         end
 end)
 
-local Toggle = Tabs.Settings:AddToggle("Auto Click", {Title = "Auto Click", Default = false })
+local Toggle = Tabs.Settings:AddToggle("Auto_Click", {Title = "Auto Click", Default = false })
 
     Toggle:OnChanged(function()
-        _G.AutoClick = Options.MyToggle.Value
+        _G.AutoClick = Options.Auto_Click.Value
     end)
 
-    Options.MyToggle:SetValue(false)
+    Options.Auto_Click:SetValue(false)
   
         spawn(function()
           while wait() do
@@ -2656,10 +2656,10 @@ local Toggle = Tabs.Settings:AddToggle("Auto Click", {Title = "Auto Click", Defa
         end
     end) 
 
-    local Toggle = Tabs.Settings:AddToggle("White Screen", {Title = "White Screen", Default = false })
+    local Toggle = Tabs.Settings:AddToggle("White_Screen", {Title = "White Screen", Default = false })
 
     Toggle:OnChanged(function()
-        _G.WhiteScreen = Options.MyToggle.Value
+        _G.WhiteScreen = Options.White_Screen.Value
     if _G.WhiteScreen == true then
         game:GetService("RunService"):Set3dRenderingEnabled(false)
     elseif _G.WhiteScreen == false then
@@ -2667,15 +2667,15 @@ local Toggle = Tabs.Settings:AddToggle("Auto Click", {Title = "Auto Click", Defa
     end
 end)
 
-    Options.MyToggle:SetValue(false)
+    Options.White_Screen:SetValue(false)
 
-    local Toggle = Tabs.Settings:AddToggle("Bypass TP", {Title = "Bypass Tp", Default = true })
+    local Toggle = Tabs.Settings:AddToggle("Bypass_TP", {Title = "Bypass Tp", Default = true })
 
     Toggle:OnChanged(function()
-        BypassTP = Options.MyToggle.Value
+        BypassTP = Options.Bypass_TP.Value
     end)
 
-    Options.MyToggle:SetValue(true)
+    Options.Bypass_TP:SetValue(true)
 
     local DropDown = Tabs.Settings:AddDropdown("Select Weapon", {
         Title = "Select Weapon",
@@ -2738,14 +2738,14 @@ end)
             end
         end
 
-        local Toggle = Tabs.Main:AddToggle("AutoFarm", {Title = "Auto Farm", Default = false })
+        local Toggle = Tabs.Main:AddToggle("Auto_Farm", {Title = "Auto Farm", Default = false })
 
         Toggle:OnChanged(function()
-            _G.AutoFarm = Options.MyToggle.Value
+            _G.AutoFarm = Options.Auto_Farm.Value
             StopTween(_G.AutoFarm)
         end)
     
-        Options.MyToggle:SetValue(false)
+        Options.Auto_Farm:SetValue(false)
 
         Tabs.Main:AddParagraph({
             Title = "Farm Boss",
@@ -2790,15 +2790,15 @@ end)
     })
         
 
-        local Toggle = Tabs.Main:AddToggle("AUto Farm Selected Boss", {Title = "Powered by Mama hub Maruko", Default = false })
+        local Toggle = Tabs.Main:AddToggle("Auto_Farm_Selected_Boss", {Title = "Powered by Mama hub Maruko", Default = false })
 
     Toggle:OnChanged(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                _G.AutoFarmBoss = Options.MyToggle.Value
+                _G.AutoFarmBoss = Options.Auto_Farm_Selected_Boss.Value
                 StopTween(_G.AutoFarmBoss)
     end)
 
-    Options.MyToggle:SetValue(false)
+    Options.Auto_Farm_Selected_Boss:SetValue(false)
 
     spawn(function()
         while wait() do
@@ -2832,14 +2832,14 @@ end)
         end
     end)
 
-    local Toggle = Tabs.Main:AddToggle("Auto Farm All Boss", {Title = "Powered By Uranium hub 2.0", Default = false })
+    local Toggle = Tabs.Main:AddToggle("Auto_Farm_All_Boss", {Title = "Powered By Uranium hub 2.0", Default = false })
 
     Toggle:OnChanged(function()
-        _G.AutoAllBoss = Options.MyToggle.Value
+        _G.AutoAllBoss = Options.Auto_Farm_All_Boss.Value
         StopTween(_G.AutoAllBoss)
     end)
 
-    Options.MyToggle:SetValue(false)
+    Options.Auto_Farm_All_Boss:SetValue(false)
 
     spawn(function()
         while wait() do
