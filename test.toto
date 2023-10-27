@@ -2130,11 +2130,11 @@ local Q = {
         Content = "You can set fastattack and select weapon at setting"
     })
 
-local Toggle = Tabs.Settings:AddToggle("Enable Fast Attack", {Title = "Fast attack", Default = false })
+local Toggle = Tabs.Settings:AddToggle("Enable_Fast_Attack", {Title = "Fast attack", Default = false })
 
     Toggle:OnChanged(function()
         local SuperFastMode = true -- เปลี่ยนเป็นจริงถ้าคุณต้องการโจมตี Super Super Super Fast (เช่นการฆ่าทันที) แต่จะทำให้เกมเตะคุณมากกว่าโหมดปกติ
-        _G.FastAttack = Options.MyToggle.Value
+        _G.FastAttack = Options.Enable_Fast_Attack.Value
     end)
 
     Options.MyToggle:SetValue(false)
