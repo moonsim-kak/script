@@ -2763,16 +2763,16 @@ end)
             end
         end
 
-        local BossName = Tabs.Main:AddDropdown("Select Boss", {
+        local DropDown1 = Tabs.Main:AddDropdown("Select Boss", {
             Title = "Why you so cute",
             Values = Boss,
             Multi = false,
             Default = 1,
         })
     
-        BossName:SetValue("")
+        DropDown1:SetValue("")
     
-        BossName:OnChanged(function(Value)
+        DropDown1:OnChanged(function(Value)
             _G.SelectBoss = Value
         end)
 
@@ -2780,10 +2780,10 @@ end)
             Title = "refresh boss",
             Description = "thank you for using toto hub",
             Callback = function()
-                BossName:Clear()
+                DropDown1:Clear()
                 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                 if string.find(v.Name, "Boss") then
-                    BossName:Add(v.Name) 
+                    DropDown1:Add(v.Name) 
                 end
             end
         end
