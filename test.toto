@@ -2313,8 +2313,8 @@ local Toggle = Tabs.Settings:AddToggle("Enable_Fast_Attack", {Title = "Fast atta
             
             
             
-            local CameRa = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
-            CameRa.CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut = 2,Sustained = 0,Inactive =1}
+            local Camera = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
+            Camera.CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut = 2,Sustained = 0,Inactive =1}
             
             local Client = game.Players.LocalPlayer
             local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
