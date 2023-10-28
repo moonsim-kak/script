@@ -2772,19 +2772,6 @@ end)
             _G.SelectBoss = Value
         end)
 
-        Tabs.Main:AddButton({
-            Title = "refresh boss",
-            Description = "thank you for using toto hub",
-            Callback = function()
-                DropDown1:Clear()
-                for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-                if string.find(v.Name, "Boss") then
-                    DropDown1:Add(v.Name) 
-                end
-            end
-        end
-    })
-
     local Toggle = Tabs.Main:AddToggle("refresh_boss", {Title = "autorefreshboss", Default = false })
 
     Toggle:OnChanged(function()
