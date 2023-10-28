@@ -2775,18 +2775,23 @@ end)
     local Toggle = Tabs.Main:AddToggle("refresh_boss", {Title = "autorefreshboss", Default = false })
 
     Toggle:OnChanged(function()
-        Refresh() = Options.refresh_boss.Value
+        _G.Refresh = Options.refresh_boss.Value
     end)
 
     Options.refresh_boss:SetValue(false)
 
-    function Refresh()
-        DropDown1:Clear()
-        for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-        if string.find(v.Name, "Boss") then
-            DropDown1:Add(v.Name) 
+    spawn(function()
+        while wait(.1) do
+            if _G.Refresh then 
+                DropDown1:Clear()
+                 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                if string.find(v.Name, "Boss") then
+                DropDown1:Add(v.Name) 
+                end
+                end
+            end
         end
-    end
+    end)
         
 
         local Toggle = Tabs.Main:AddToggle("Auto_Farm_Selected_Boss", {Title = "Farm Boss Powered by Mama hub Maruko", Default = false })
