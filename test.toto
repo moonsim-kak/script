@@ -2760,10 +2760,10 @@ end)
         end
 
         local DropDown1 = Tabs.Main:AddDropdown("Select Boss", {
-            Title = "Why you so cute",
+            Title = "Why you so cute select boss you want",
             Values = Boss,
             Multi = false,
-            Default = 1,
+            Default = Boss,
         })
     
         DropDown1:SetValue("")
@@ -2784,9 +2784,37 @@ end)
             end
         end
     })
+
+    Tabs.Main:AddButton({
+        Title = "refresh boss",
+        Description = "refresh",
+        Callback = function()
+            Window:Dialog({
+                Title = "refresh boss",
+                Content = "refresh boss",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            DropDown1:Clear()
+                            for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+                              if string.find(v.Name, "Boss") then
+                              DropDown1:Add(v.Name)    
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("You Cancel clear boss")
+                        end
+                    }
+                }
+            })
+        end
+    })
         
 
-        local Toggle = Tabs.Main:AddToggle("Auto_Farm_Selected_Boss", {Title = "Powered by Mama hub Maruko", Default = false })
+        local Toggle = Tabs.Main:AddToggle("Auto_Farm_Selected_Boss", {Title = "Farm Boss Powered by Mama hub Maruko", Default = false })
 
     Toggle:OnChanged(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -2828,7 +2856,7 @@ end)
         end
     end)
 
-    local Toggle = Tabs.Main:AddToggle("Auto_Farm_All_Boss", {Title = "Powered By Uranium hub 2.0", Default = false })
+    local Toggle = Tabs.Main:AddToggle("Auto_Farm_All_Boss", {Title = "farm all boss Powered By Uranium hub 2.0", Default = false })
 
     Toggle:OnChanged(function()
         _G.AutoAllBoss = Options.Auto_Farm_All_Boss.Value
